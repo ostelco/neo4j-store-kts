@@ -1,5 +1,3 @@
-package neo4j
-
 import arrow.core.Either
 import arrow.core.right
 import org.ostelco.prime.model.Customer
