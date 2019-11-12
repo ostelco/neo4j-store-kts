@@ -4,6 +4,8 @@ import org.ostelco.prime.auditlog.AuditLog
 import org.ostelco.prime.model.Customer
 import org.ostelco.prime.model.KycStatus.APPROVED
 import org.ostelco.prime.model.KycType
+import org.ostelco.prime.model.KycType.ADDRESS
+import org.ostelco.prime.model.KycType.JUMIO
 import org.ostelco.prime.storage.StoreError
 import org.ostelco.prime.storage.graph.AllowedRegionsService
 import org.ostelco.prime.storage.graph.Neo4jStoreSingleton
@@ -22,7 +24,7 @@ object : OnKycApprovedAction {
             transaction: PrimeTransaction): Either<StoreError, Unit> {
 
         return when {
-            kycIdType == "PASSPORT" -> {
+            kycType == JUMIO && kycIdType == "PASSPORT" -> {
                 allowedRegionsService.get(
                         customer = customer,
                         transaction = transaction
@@ -39,7 +41,7 @@ object : OnKycApprovedAction {
                     }
                 }
             }
-            regionCode == "sg" -> {
+            (kycType == JUMIO || kycType == ADDRESS) && regionCode == "sg" -> {
 
                 AuditLog.info(customerId = customer.id, message = "Approving kyc - $kycType for 'my' region since it's approved for 'sg' region.")
 
