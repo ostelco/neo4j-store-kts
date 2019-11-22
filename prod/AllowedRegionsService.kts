@@ -17,6 +17,8 @@ object : AllowedRegionsService {
                     isEmailAllowed(
                             customerEmail = customer.contactEmail.toLowerCase(),
                             allowedEmails = setOf(
+                                    "alyssa.rivera3@gmail.com",
+                                    "eyvind.bernhardsen@gmail.com",
                                     "havardnoren@gmail.com",
                                     "oisinzimmermann@mac.com",
                                     "prasanth.u@gmail.com",
