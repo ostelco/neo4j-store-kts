@@ -17,7 +17,7 @@ object : OnRegionApprovedAction {
             transaction: PrimeTransaction
     ): Either<StoreError, Unit> {
         val segmentId = when (regionCode.toLowerCase()) {
-            "no", "us" -> "country-${regionCode.toLowerCase()}"
+            "no" -> "country-${regionCode.toLowerCase()}"
             else -> "country-sg"
         }
         return Either.fx {

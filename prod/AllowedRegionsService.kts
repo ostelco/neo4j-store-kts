@@ -11,7 +11,6 @@ object : AllowedRegionsService {
 
         val allowedRegions = setOf(
                 "sg",
-                "us",
                 "my",
                 "no".takeIf {
                     isEmailAllowed(
