@@ -16,20 +16,14 @@ object : AllowedRegionsService {
                     isEmailAllowed(
                             customerEmail = customer.contactEmail.toLowerCase(),
                             allowedEmails = setOf(
-                                    "alyssa.rivera3@gmail.com",
-                                    "eyvind.bernhardsen@gmail.com",
-                                    "havardnoren@gmail.com",
-                                    "oisinzimmermann@mac.com",
-                                    "prasanth.u@gmail.com",
-                                    "rmz@rmz.no",
-                                    "vihang.patil@gmail.com"
+			    		  "that-darn-elusive-pimpernel@organization.french-revolution" // <- Obviously a fake			    
+
                             ),
                             allowedEmailSuffixes = setOf(
                                     "@oya.sg",
                                     "@oya.world",
                                     "@redotter.sg",
-                                    "@redotter.world",
-                                    "@wgtwo.com"
+                                    "@redotter.world"
                             )
                     )
                 }
